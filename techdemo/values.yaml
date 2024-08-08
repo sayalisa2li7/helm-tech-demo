@@ -1,0 +1,51 @@
+replicaCounts:
+  nextjs: 2
+  web: 1
+  mysql: 1
+  prometheus: 1
+  alertmanager: 1
+  grafana: 1
+
+images:
+  nextjs: sayalisa2li7/frontend_techdemo:1.9
+  web: sayalisa2li7/backend_techdemo:2.5
+  mysql: mysql:5.7
+  prometheus: prom/prometheus:latest
+  alertmanager: prom/alertmanager:latest
+  grafana: grafana/grafana:latest
+
+resources:
+  nextjs:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+mysql:
+  rootPassword: cm9vdF9wYXNzd29yZA==
+  password: U3VnYW5kaGExMjc0Kg==
+  database: stock_data
+  user: sayali97
+  pvcSize: 10Gi
+
+grafana:
+  adminUser: admin
+  adminPassword: admin
+  pvcSize: 5Gi
+
+nodePorts:
+  nextjs: 30007
+  web: 30001
+  prometheus: 30003
+  alertmanager: 30004
+  grafana: 30005
+
+smtp:
+  host: smtp.gmail.com:587
+  from: 'sayalis0910@gmail.com'
+  username: 'sayalis0910@gmail.com'
+  password: 'snhyvpyexzvldsth'
+
+receiverEmail: 'nishantddubey4@gmail.com'

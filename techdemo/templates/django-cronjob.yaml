@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: django-cronjob2
+spec:
+  schedule: "30 1 * * *" # This runs the job daily at 7am
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: django
+            image: sayalisa2li7/backend_techdemo:2.5  # Replace with your Django image
+            command: ["python3", "manage.py", "fetch_stock_data"]  # Replace with your management command
+            env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: tech_demo.settings
+            - name: DATABASE_URL
+              value: mysql://sayali97:Sugandha1274*@db:3306/stock_data
+          restartPolicy: OnFailure

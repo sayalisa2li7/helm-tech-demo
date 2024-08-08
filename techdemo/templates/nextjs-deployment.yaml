@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-deployment
+spec:
+  replicas: {{ .Values.replicaCounts.nextjs }}
+  selector:
+    matchLabels:
+      app: nextjs
+  template:
+    metadata:
+      labels:
+        app: nextjs
+    spec:
+      containers:
+      - name: nextjs-container
+        image: {{ .Values.images.nextjs }}
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: {{ .Values.resources.nextjs.requests.memory }}
+            cpu: {{ .Values.resources.nextjs.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.nextjs.limits.memory }}
+            cpu: {{ .Values.resources.nextjs.limits.cpu }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-service
+spec:
+  selector:
+    app: nextjs
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      nodePort: {{ .Values.nodePorts.nextjs }}
+  type: NodePort
