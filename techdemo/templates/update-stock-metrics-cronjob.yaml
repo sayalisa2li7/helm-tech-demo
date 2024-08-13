@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: stock-metrics-updater
-            image: sayalisa2li7/backend_techdemo:5cff344e5d43187330dacfb8bd115e7bd1b86022  # Replace with the Docker image containing your Django application
+            image: "{{ .Values.images.web }}:{{ .Values.images.tag2 }}"  # Replace with the Docker image containing your Django application
             command: ["python", "manage.py", "update_metrics"]
             env:
             - name: DJANGO_SETTINGS_MODULE

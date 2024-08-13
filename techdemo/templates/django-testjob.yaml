@@ -12,7 +12,7 @@ spec:
         command: ['sh', '-c', 'until nc -z -v -w30 db 3306; do echo "Waiting for database connection..."; sleep 5; done']
       containers:
       - name: django
-        image: sayalisa2li7/backend_techdemo:5cff344e5d43187330dacfb8bd115e7bd1b86022
+        image: "{{ .Values.images.web }}:{{ .Values.images.tag2 }}"
         command: ["python", "manage.py", "fetch_year_data"]
         env:
         - name: DJANGO_SETTINGS_MODULE

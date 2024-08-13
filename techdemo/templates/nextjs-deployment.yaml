@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nextjs-container
-        image: {{ .Values.images.nextjs }}
+        image: "{{ .Values.images.nextjs }}:{{ .Values.images.tag1 }}"
         ports:
         - containerPort: 3000
         resources:
