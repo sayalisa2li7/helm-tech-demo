@@ -10,8 +10,8 @@ spec:
         spec:
           containers:
           - name: django
-            image: sayalisa2li7/backend_techdemo:2.5  # Replace with your Django image
-            command: ["python3", "manage.py", "fetch_stock_data"]  # Replace with your management command
+            image: sayalisa2li7/backend_techdemo:5.5  # Replace with your Django image
+            command: ["python", "manage.py", "fetch_stock_data"]  # Replace with your management command
             env:
             - name: DJANGO_SETTINGS_MODULE
               value: tech_demo.settings
