@@ -7,8 +7,8 @@ replicaCounts:
   grafana: 1
 
 images:
-  nextjs: sayalisa2li7/frontend_techdemo:3.0
-  web: sayalisa2li7/backend_techdemo:5.5
+  nextjs: sayalisa2li7/frontend_techdemo:daf10951a480f07a93a5ffd4ad6c3670769aa29b
+  web: sayalisa2li7/backend_techdemo:5cff344e5d43187330dacfb8bd115e7bd1b86022
   mysql: mysql:5.7
   prometheus: prom/prometheus:latest
   alertmanager: prom/alertmanager:latest
